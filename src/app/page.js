@@ -44,10 +44,11 @@ const useTodoStatus = () => {
 const App = () => {
   const todosState = useTodoStatus(); // 리액트 커스텀훅
 
-  // React.useEffect(() => {
-  //     todosState.addTodo('테니스');
-  //     todosState.addTodo('야구');
-  // }, []);
+  React.useEffect(() => {
+    todosState.addTodo('테니스');
+    todosState.addTodo('야구');
+    todosState.addTodo('볼링');
+  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
