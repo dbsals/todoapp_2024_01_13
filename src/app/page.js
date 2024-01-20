@@ -87,7 +87,14 @@ const App = () => {
       </AppBar>
       <Toolbar />
       <form onSubmit={(e) => onSubmit(e)} className="tw-flex tw-flex-col tw-p-4 tw-gap-2">
-        <TextField name="content" autoComplete="off" label="할 일을 입력해주세요." />
+        <TextField
+          minRows={3}
+          maxRows={10}
+          multiline
+          name="content"
+          autoComplete="off"
+          label="할 일을 입력해주세요."
+        />
         <Button variant="contained" className="tw-font-bold" type="submit">
           추가
         </Button>
@@ -101,7 +108,7 @@ const App = () => {
                   <Chip label={`번호 : ${todo.id}`} variant="outlined" />
                   <Chip label={`현재날짜 : ${todo.regDate}`} variant="outlined" color="primary" />
                 </div>
-                <div className="tw-p-10 tw-rounded-[20px] tw-shadow !tw-whitespace-pre-wrap tw-leading-relaxed">
+                <div className="tw-p-10 tw-rounded-[20px] tw-shadow !tw-whitespace-pre-wrap tw-leading-relaxed tw-break-words">
                   {todo.content}
                 </div>
               </div>
