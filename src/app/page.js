@@ -4,7 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import * as React from 'react';
 import { CssBaseline, Button, AppBar, Toolbar, TextField, Chip, Box } from '@mui/material';
 import { FaBars } from 'react-icons/fa';
-import theme from './theme';
+import RootTheme from './theme';
 import dateToStr from './dateUtil';
 
 const useTodoStatus = () => {
@@ -45,10 +45,9 @@ const App = () => {
   const todosState = useTodoStatus(); // 리액트 커스텀훅
 
   React.useEffect(() => {
-    todosState.addTodo('테니스\n유산소\n축구\n헬스');
+    todosState.addTodo('테니스\n유산소\n배드민턴');
     todosState.addTodo('야구');
     todosState.addTodo('볼링');
-    todosState.addTodo('배구');
   }, []);
 
   const onSubmit = (e) => {
@@ -114,8 +113,8 @@ const App = () => {
                     color="primary"
                   />
                 </div>
-                <div className="tw-p-10 tw-rounded-[20px] tw-shadow !tw-whitespace-pre-wrap tw-leading-relaxed tw-break-words">
-                  <Box sx={{ color: 'primary.main' }}>{todo.content}</Box>
+                <div className="tw-p-10 tw-rounded-[20px] tw-shadow tw-whitespace-pre-wrap tw-leading-relaxed tw-break-words hover:tw-text-[--mui-color-primary-main]">
+                  {todo.content}
                 </div>
               </div>
             </li>
@@ -127,6 +126,8 @@ const App = () => {
 };
 
 export default function themeApp() {
+  const theme = RootTheme();
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
